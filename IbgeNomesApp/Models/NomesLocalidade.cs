@@ -15,4 +15,9 @@ public class NomesLocalidade
 
     [JsonPropertyName("sobrenomes")]
     public List<Frequencia> Sobrenomes { get; set; } = new();
+
+    // Verdadeiro quando a API não trouxe nenhum nome.
+    [JsonIgnore]
+    public bool EstaVazio =>
+        Mulheres.Count == 0 && Homens.Count == 0 && Sobrenomes.Count == 0;
 }
